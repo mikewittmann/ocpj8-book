@@ -118,7 +118,7 @@
 
             <p>If the <code>Function</code> used by <code>flatMap()</code> returns <code>null</code>, an empty stream is returned instead.</p>
 
-            <p>Let's see how this work. If we have a stream of lists of characters:</p>
+            <p>Let's see how this works. If we have a stream of lists of characters:</p>
 
             <p><code class="java hljs">List&lt;Character&gt; aToD = Arrays.asList(<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>, <span class="hljs-string">'d'</span>);<br />
 	  List&lt;Character&gt; eToG = Arrays.asList(<span class="hljs-string">'e'</span>, <span class="hljs-string">'f'</span>, <span class="hljs-string">'g'</span>);<br />
@@ -264,7 +264,7 @@
 	  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; .reduce( <span class="hljs-number">4</span>,<br />
 	  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (sum, n) -&gt; sum + n ); <span class="hljs-comment">// 25</span></code></p>
 
-            <p>However, notice that in the last example, the first value cannot be considered an identity (as in the first example) since, for instance, <code>4 + 1</code> is not equal to <code>4</code>.</p>
+            <p>However, notice that in the last example, the first value cannot be considered an identity (as in the first example) since, for instance, <code>4 + 1</code> is not equal to <code>1</code>.</p>
 
             <p>This can bring some problems when working with parallel streams, which we'll review in the next chapter.</p>
 
@@ -821,7 +821,7 @@
 
             <p>The second method for grouping is <code>partitioningBy()</code>.</p>
 
-            <p>The difference with <code>groupingBy()</code> is that <code>partitioningBy()</code> will return a <code>Map</code> with a <code>Boolean</code> as the key type, which means there are only two groups, one for true and one for <code>false</code>.</p>
+            <p>The difference with <code>groupingBy()</code> is that <code>partitioningBy()</code> will return a <code>Map</code> with a <code>Boolean</code> as the key type, which means there are only two groups, one for <code>true</code> and one for <code>false</code>.</p>
 
             <p>There are two versions of this method. The first one is:</p>
 
@@ -832,7 +832,7 @@
             <p>For example, if we want to partition a stream of numbers by the ones that are less than <code>50</code> and the ones that don't, we can do it this way:</p>
 
             <p><code class="java hljs">Map&lt;Boolean, List&lt;Integer&gt;&gt; map =<br />
-	  &nbsp; &nbsp; Stream.of(<span class="hljs-number">45</span>, <span class="hljs-number">9</span>, <span class="hljs-number">65</span>, <span class="hljs-number">77</span>, <span class="hljs-number">12</span>, <span class="hljs-number">89</span>, <span class="hljs-number">31</span>)<br />
+	  &nbsp; &nbsp; Stream.of(<span class="hljs-number">45</span>, <span class="hljs-number">9</span>, <span class="hljs-number">65</span>, <span class="hljs-number">77</span>, <span class="hljs-number">12</span>, <span class="hljs-number">89</span>, <span class="hljs-number">31</span>, <span class="hljs-number">12</span>)<br />
 	  &nbsp; &nbsp; &nbsp; &nbsp; .collect(partitioningBy(i -&gt; i &lt; <span class="hljs-number">50</span>));</code></p>
 
             <p>This will return the following map:</p>
