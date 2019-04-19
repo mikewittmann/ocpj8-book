@@ -48,7 +48,7 @@
 
             <p>For example, one solution to avoid a race condition is to ensure that only one thread at a time can access the code that causes the problem; a process known as <i>synchronizing</i> that block of code.</p>
 
-            <p>Synchronization works with locks. Every object comes with a built-in lock and since there is only lock per object, only one thread can hold that lock at any time. The other threads cannot take the lock until the first thread releases it. Meanwhile, they are blocked.</p>
+            <p>Synchronization works with locks. Every object comes with a built-in lock and since there is only one lock per object, only one thread can hold that lock at any time. The other threads cannot take the lock until the first thread releases it. Meanwhile, they are blocked.</p>
 
             <p>You define a lock by using the <code>synchronized</code> keyword on either a block or a method. That lock is acquired when a thread enters an unoccupied synchronized block or method.</p>
 
@@ -137,7 +137,7 @@
 
             <h2>Atomic Classes</h2>
 
-            <p>The <code>java.concurrent.atomic</code> package contains classes to perform atomic operations, which are performed in a single step without the intervention of more than thread.</p>
+            <p>The <code>java.concurrent.atomic</code> package contains classes to perform atomic operations, which are performed in a single step without the intervention of more than one thread.</p>
 
             <p>We have for example:</p>
 
@@ -227,7 +227,7 @@
                 <li><code>ConcurrentNavigableMap</code> (for navigable maps like <code>TreeMap</code>)</li>
             </ul>
 
-            <p>Since these interfaces extends from the <code>java.util</code> collection interfaces, they inherit the methods we already know (and behave like one of them) so here you'll only find the added methods that support concurrency. And for lists, you can use the class <code>CopyOnWriteArrayList</code>.</p>
+            <p>Since these interfaces extend from the <code>java.util</code> collection interfaces, they inherit the methods we already know (and behave like one of them) so here you'll only find the added methods that support concurrency. And for lists, you can use the class <code>CopyOnWriteArrayList</code>.</p>
 
             <p><b>BlockingQueue</b><br /> It represents a thread-safe queue that waits (with an optional timeout) for an element to be inserted if the queue is empty or for an element to be removed if the queue is full:</p>
 
